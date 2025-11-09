@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Jed Encinares Fight Live - Get Your Tickets Now!</title>
+    <link rel="stylesheet" href="jed.css">
+</head>
+<body>
+    <!-- 10s Intro with Sliding Pictures (Looping, Click to Skip) -->
+    <div class="intro" id="intro">
+        <div class="intro-slides">
+            <div class="slide">
+                <img src="ae7a790f-ee79-4b03-b6f3-511311cbc225.jpeg" alt="Jed Encinares in the Ring">
+            </div>
+            <div class="slide">
+                <img src="a3258f1f-fbb8-46e2-9602-f96f9d4ea949.jpeg" alt="Victory Pose">
+            </div>
+            <div class="slide">
+                <img src="e1de4e3b-c047-4a60-98de-d26b1283d3df.jpeg" alt="Fight Night Crowd">
+            </div>
+        </div>
+        <div class="intro-overlay">
+            <div>
+                <h1>Welcome to the Jed Encinares Experience</h1>
+                <p>Feel the adrenaline. Witness the future of boxing.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="mainContent">
+        <header>
+            <h1>Experience the Rise of Jed Encinares!</h1>
+            <p>Watch the young Filipino sensation dominate the ring. Get your tickets now!</p>
+        </header>
+
+        <div class="hero-image"></div>
+
+        <div class="section">
+            <img src="522224a6-18d1-423b-a2c8-7c1b54ef03c2.jpeg" alt="Jed Encinares Portrait">
+            <div class="content">
+                <h2>About Jed Encinares</h2>
+                <p>Jed Encinares is a professional boxer from the Philippines, fighting out of Fuji, Shizuoka, Japan. Born on June 4, 2007, he's around 17-18 years old and stands at 5'5" (approx 165-166cm). With a record of 0 wins – 1 loss – 1 draw, this rising star is just getting started!</p>
+                <p>Sources: Tapology, Philboxing, BoxRec</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <img src="0ef499e9-d063-4cc9-96c9-e7740827dee4.jpeg" alt="Fight Night Action">
+            <div class="content">
+                <h2>Recent Fights</h2>
+                <ul>
+                    <li><strong>August 3, 2024:</strong> Lost via TKO in Round 4 to Daisuke Igarashi.</li>
+                    <li><strong>January 14 (year not specified):</strong> Majority draw against Muto Konuma at Korakuen Hall, Tokyo.</li>
+                </ul>
+                <p>Don't miss his next bout – the energy is electric!</p>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h2>Secure Your Seats Today!</h2>
+            <p>Join the crowd and witness history in the making. Tickets are selling fast!</p>
+            <button onclick="window.location.href='https://example.com/buy-tickets'">Buy Tickets Now</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ticket Site. All rights reserved. Powered by excitement!</p>
+    </footer>
+
+    <script>
+        // Function to show main content and hide intro
+        function showMainContent() {
+            document.getElementById('intro').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+        }
+
+        // Auto-transition after 10 seconds
+        setTimeout(showMainContent, 10000); // 10 seconds
+
+        // Click to skip intro and go to contents
+        document.getElementById('intro').addEventListener('click', showMainContent);
+    </script>
+</body>
+</html>
