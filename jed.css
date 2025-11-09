@@ -1,0 +1,254 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: none; /* Initially hidden */
+}
+
+/* Intro Section with Looping Sliding Images */
+.intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.intro-slides {
+    display: flex;
+    width: 300%; /* 3 images */
+    height: 100%;
+    animation: slide 10s ease-in-out infinite; /* Infinite loop every 10 seconds */
+}
+
+.slide {
+    width: 33.333%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images fit without distortion */
+    display: block;
+}
+
+.intro-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px; /* Added padding for mobile */
+}
+
+.intro-overlay h1 {
+    font-size: 4em;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.intro-overlay p {
+    font-size: 1.5em;
+    margin: 10px 0 0 0;
+    animation: fadeIn 2s ease-in-out 1s both;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-33.333%); }
+    66% { transform: translateX(-66.666%); }
+    100% { transform: translateX(0); } /* Loops back to start */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 50px 20px; /* Adjusted padding */
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 3em;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Hero Image */
+.hero-image {
+    width: 100%;
+    height: 400px;
+    background: url('https://via.placeholder.com/1200x400/333/fff?text=Jed+Encinares+in+Action') no-repeat center center;
+    background-size: cover;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+/* Section Styles */
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.section img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.content h2 {
+    font-size: 2em;
+    margin-top: 0;
+}
+
+/* Call-to-Action */
+.cta {
+    text-align: center;
+    padding: 40px 20px; /* Adjusted padding */
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.cta h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.cta button {
+    background: #ff6b35;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    min-width: 150px; /* Ensure touch-friendly size */
+}
+
+.cta button:hover {
+    background: #e55a2b;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .intro-overlay h1 {
+        font-size: 2.5em; /* Smaller font for tablets */
+    }
+    .intro-overlay p {
+        font-size: 1.2em;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    header {
+        padding: 30px 15px;
+    }
+    .hero-image {
+        height: 250px; /* Shorter on smaller screens */
+    }
+    .section {
+        flex-direction: column; /* Stack vertically */
+        padding: 15px;
+    }
+    .section img {
+        width: 100%; /* Full width */
+        height: auto; /* Maintain aspect ratio */
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .content {
+        min-width: auto;
+    }
+    .content h2 {
+        font-size: 1.5em;
+    }
+    .cta h2 {
+        font-size: 2em;
+    }
+    .cta {
+        padding: 30px 15px;
+    }
+    .cta button {
+        font-size: 1.1em;
+        padding: 12px 25px;
+    }
+    footer {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-overlay h1 {
+        font-size: 2em; /* Even smaller for phones */
+    }
+    .intro-overlay p {
+        font-size: 1em;
+    }
+    header h1 {
+        font-size: 1.5em;
+    }
+    .hero-image {
+        height: 200px;
+    }
+    .section {
+        padding: 10px;
+    }
+    .content h2 {
+        font-size: 1.3em;
+    }
+    .cta h2 {
+        font-size: 1.8em;
+    }
+    .cta button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
