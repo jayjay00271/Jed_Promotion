@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jed Encinares | The Ring Between Two Worlds</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='gloveGradient' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff3b30;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23ff6b35;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='32' fill='%23000000'/%3E%3Cg transform='translate(12, 20)'%3E%3Cpath d='M 8 12 Q 6 10 6 8 Q 6 4 10 3 Q 14 2 16 6 L 16 10 Q 16 14 14 18 L 12 24 Q 11 26 8 26 Q 5 26 4 24 L 2 18 Q 0 14 0 10 L 0 8 Q 0 6 2 6 L 4 8 Z' fill='url(%23gloveGradient)' stroke='%23ffffff' stroke-width='1'/%3E%3Cellipse cx='4' cy='10' rx='3' ry='5' fill='url(%23gloveGradient)' stroke='%23ffffff' stroke-width='1'/%3E%3Crect x='6' y='24' width='6' height='4' rx='1' fill='%23ffffff' opacity='0.9'/%3E%3C/g%3E%3Cg transform='translate(52, 20) scale(-1, 1)'%3E%3Cpath d='M 8 12 Q 6 10 6 8 Q 6 4 10 3 Q 14 2 16 6 L 16 10 Q 16 14 14 18 L 12 24 Q 11 26 8 26 Q 5 26 4 24 L 2 18 Q 0 14 0 10 L 0 8 Q 0 6 2 6 L 4 8 Z' fill='url(%23gloveGradient)' stroke='%23ffffff' stroke-width='1'/%3E%3Cellipse cx='4' cy='10' rx='3' ry='5' fill='url(%23gloveGradient)' stroke='%23ffffff' stroke-width='1'/%3E%3Crect x='6' y='24' width='6' height='4' rx='1' fill='%23ffffff' opacity='0.9'/%3E%3C/g%3E%3Cline x1='28' y1='32' x2='22' y2='32' stroke='%23ffffff' stroke-width='2' opacity='0.6'/%3E%3Cline x1='36' y1='32' x2='42' y2='32' stroke='%23ffffff' stroke-width='2' opacity='0.6'/%3E%3Cline x1='26' y1='28' x2='22' y2='24' stroke='%23ffffff' stroke-width='1.5' opacity='0.4'/%3E%3Cline x1='38' y1='28' x2='42' y2='24' stroke='%23ffffff' stroke-width='1.5' opacity='0.4'/%3E%3C/svg%3E">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff3b30;
+            --primary-glow: rgba(255, 59, 48, 0.6);
+            --secondary: #ff6b35;
+            --dark: #000000;
+            --dark-alt: #0a0a0a;
+            --text: #ffffff;
+            --text-muted: #999;
+        }
+        .social-links {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1rem;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Custom Cursor */
+        body {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="%23ff3b30" opacity="0.3"/><circle cx="12" cy="12" r="3" fill="%23ffffff"/></svg>'), auto;
+        }
+
+        a, button {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="%23ff3b30" opacity="0.5"/><circle cx="16" cy="16" r="5" fill="%23ffffff"/></svg>'), pointer;
+        }
+
+        /* Animated Background Particles */
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-100px) translateX(50px); }
+            50% { transform: translateY(-200px) translateX(-30px); }
+            75% { transform: translateY(-150px) translateX(70px); }
+        }
+
+        /* Audio Control - Enhanced */
+        .audio-control {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 10000;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px var(--primary-glow),
+                        0 0 0 0 var(--primary-glow);
+            transition: all 0.3s ease;
+            animation: pulseRing 2s infinite;
+        }
+
+        @keyframes pulseRing {
+            0% { box-shadow: 0 10px 40px var(--primary-glow), 0 0 0 0 var(--primary-glow); }
+            50% { box-shadow: 0 15px 50px var(--primary-glow), 0 0 0 20px rgba(255, 59, 48, 0); }
+            100% { box-shadow: 0 10px 40px var(--primary-glow), 0 0 0 0 var(--primary-glow); }
+        }
+
+        .audio-control:hover {
+            transform: scale(1.15) rotate(15deg);
+            box-shadow: 0 20px 60px var(--primary-glow);
+        }
+
+        .audio-control svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        /* Hero Section - Ultra Dynamic */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-slideshow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.35) contrast(1.2) saturate(1.1);
+            transform: scale(1.1);
+            animation: kenBurns 20s ease-out infinite alternate;
+        }
+
+        @keyframes kenBurns {
+            0% { transform: scale(1.1) translateX(0); }
+            100% { transform: scale(1.3) translateX(-30px); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(255, 59, 48, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 1200px;
+            padding: 40px;
+        }
+
+        .hero-pretitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary) 50%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.05em;
+            text-shadow: 0 0 80px var(--primary-glow);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.5s forwards, glowPulse 3s ease-in-out infinite;
+            line-height: 0.9;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { filter: drop-shadow(0 0 20px var(--primary-glow)); }
+            50% { filter: drop-shadow(0 0 40px var(--primary-glow)); }
+        }
+
+        .hero .tagline {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            color: #ddd;
+            margin-bottom: 50px;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            font-style: italic;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.7s forwards;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            color: var(--text-muted);
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.9s forwards;
+        }
+
+        .enter-btn {
+            position: relative;
+            padding: 25px 70px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text);
+            border: 3px solid transparent;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            box-shadow: 0 20px 60px var(--primary-glow),
+                        inset 0 -3px 10px rgba(0,0,0,0.3);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.1s forwards;
+            overflow: hidden;
+        }
+
+        .enter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.7s;
+        }
+
+        .enter-btn:hover::before {
+            left: 100%;
+        }
+
+        .enter-btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 30px 80px var(--primary-glow);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .enter-btn:active {
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.5s forwards, bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-20px); }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 0.7; }
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--primary);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* Story Section - Magazine Layout */
+        .story-section {
+            position: relative;
+            padding: 200px 40px;
+            background: linear-gradient(180deg, var(--dark) 0%, #0f0f0f 30%, var(--dark) 70%, var(--dark-alt) 100%);
+            overflow: hidden;
+        }
+
+        .story-section::before {
+            content: 'JED';
+            position: absolute;
+            top: 10%;
+            right: -5%;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 40rem;
+            font-weight: 900;
+            color: rgba(255, 59, 48, 0.03);
+            z-index: 0;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .story-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(4rem, 8vw, 8rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 120px;
+            background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.05em;
+            position: relative;
+            line-height: 1;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 120px;
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1s ease-out;
+        }
+
+        .story-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .story-image {
+            position: relative;
+            height: 600px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.7),
+                        0 0 0 1px rgba(255, 255, 255, 0.05);
+            transform: perspective(1000px) rotateY(5deg);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .story-content:nth-child(even) .story-image {
+            transform: perspective(1000px) rotateY(-5deg);
+        }
+
+        .story-image:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+            box-shadow: 0 50px 120px rgba(255, 59, 48, 0.4);
+        }
+
+        .story-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-glow) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.6s;
+            z-index: 2;
+        }
+
+        .story-image:hover::before {
+            opacity: 0.3;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: grayscale(20%) brightness(0.9);
+        }
+
+        .story-image:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0%) brightness(1);
+        }
+
+        .story-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: #ccc;
+        }
+
+        .story-text p {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .story-text p::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .story-text .highlight {
+            color: var(--primary);
+            font-weight: 700;
+            position: relative;
+            padding: 0 5px;
+        }
+
+        .story-text .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0.3;
+        }
+
+        .story-quote {
+            position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            padding: 80px 100px;
+            border-radius: 30px;
+            border-left: 6px solid var(--primary);
+            margin: 100px 0;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6),
+                        inset 0 1px 0 rgba(255,255,255,0.05);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1s ease-out;
+        }
+
+        .story-quote.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .story-quote::before {
+            content: '"';
+            position: absolute;
+            top: -30px;
+            left: 40px;
+            font-size: 20rem;
+            font-family: Georgia, serif;
+            color: rgba(255, 59, 48, 0.1);
+            line-height: 1;
+        }
+
+        .story-quote p {
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .story-quote cite {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-style: normal;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        /* Stats Section - Elevated Design */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            padding: 150px 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+            background: var(--dark-alt);
+            position: relative;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            padding: 60px 40px;
+            border-radius: 30px;
+            text-align: center;
+            border: 1px solid #222;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        .stat-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            transform: scaleX(0);
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary-glow), transparent);
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-card:hover::after {
+            width: 300%;
+            height: 300%;
+            top: -100%;
+            left: -100%;
+            opacity: 0.1;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: #333;
+            box-shadow: 0 30px 80px rgba(255, 59, 48, 0.4);
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 15px;
+            line-height: 1;
+            text-shadow: 0 0 30px var(--primary-glow);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+        }
+
+        /* Gallery Section - Masonry Effect */
+        .gallery-section {
+            padding: 150px 40px;
+            background: linear-gradient(180deg, var(--dark-alt) 0%, var(--dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-section::before {
+            content: '17';
+            position: absolute;
+            top: 5%;
+            left: -10%;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 60rem;
+            font-weight: 900;
+            color: rgba(255, 59, 48, 0.02);
+            z-index: 0;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        .gallery-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-glow) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.6s;
+            z-index: 2;
+        }
+
+        .gallery-card:hover::before {
+            opacity: 0.4;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 40px 100px rgba(255, 59, 48, 0.5);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(50%) brightness(0.7);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .gallery-card:hover img {
+            filter: grayscale(0%) brightness(1);
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 100%);
+            transform: translateY(100%);
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 3;
+        }
+
+        .gallery-card:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .gallery-overlay p {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        /* CTA Section - Epic Finale */
+        .cta-section {
+            padding: 200px 40px;
+            text-align: center;
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(255, 59, 48, 0.15) 0%, transparent 50%),
+                linear-gradient(135deg, #1a1a1a 0%, var(--dark-alt) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before,
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary-glow), transparent);
+            opacity: 0.15;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .cta-section::before {
+            top: -300px;
+            left: -200px;
+        }
+
+        .cta-section::after {
+            bottom: -300px;
+            right: -200px;
+            animation-delay: -7s;
+        }
+
+        .cta-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 900;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+            letter-spacing: 0.05em;
+            background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .cta-section p {
+            font-size: 1.6rem;
+            color: #bbb;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 25px 70px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 60px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            box-shadow: 0 20px 60px var(--primary-glow);
+            position: relative;
+            z-index: 2;
+            border: 3px solid transparent;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.7s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 30px 80px var(--primary-glow);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 40px;
+            text-align: center;
+            background: var(--dark);
+            color: #555;
+            font-size: 0.95rem;
+            border-top: 1px solid #1a1a1a;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .footer-highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .story-image {
+                height: 450px;
+                transform: perspective(1000px) rotateY(0deg);
+            }
+
+            .story-quote {
+                padding: 60px 40px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: clamp(3rem, 15vw, 5rem);
+            }
+
+            .story-section {
+                padding: 120px 20px;
+            }
+
+            .story-image {
+                height: 350px;
+            }
+
+            .story-text {
+                font-size: 1rem;
+            }
+
+            .story-quote {
+                padding: 40px 30px;
+            }
+
+            .story-quote p {
+                font-size: 1.3rem;
+            }
+
+            .stats {
+                padding: 100px 20px;
+                gap: 30px;
+            }
+
+            .gallery-section {
+                padding: 100px 20px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cta-section {
+                padding: 100px 20px;
+            }
+
+            .audio-control {
+                width: 60px;
+                height: 60px;
+                bottom: 25px;
+                right: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="audio/POWER - Kanye West.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Audio Control Button -->
+    <button class="audio-control" id="audioToggle" aria-label="Toggle Music">
+        <svg id="soundOn" viewBox="0 0 24 24">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+        </svg>
+        <svg id="soundOff" style="display: none;" viewBox="0 0 24 24">
+            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+        </svg>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slideshow">
+            <div class="hero-slide active">
+                <img src="images/6ede40c0-460d-462c-8685-6a70043011d6.jpeg" alt="Jed Encinares">
+            </div>
+            <div class="hero-slide">
+                <img src="images/9d1b4112-07ad-46ff-b862-6c150bfcd513.jpeg" alt="Jed Encinares">
+            </div>
+            <div class="hero-slide">
+                <img src="images/ae7a790f-ee79-4b03-b6f3-511311cbc225.jpeg" alt="Jed Encinares">
+            </div>
+            <div class="hero-slide">
+                <img src="images/a3258f1f-fbb8-46e2-9602-f96f9d4ea949.jpeg" alt="Jed Encinares">
+            </div>
+            <div class="hero-slide">
+                <img src="images/61b322bd-44db-4b88-8d8e-981fda6a873f.jpeg" alt="Jed Encinares">
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-pretitle">Rising Legend</div>
+            <h1>JED ENCINARES</h1>
+            <p class="tagline">"The Ring Between Two Worlds"</p>
+            <p class="subtitle">Philippines × Japan</p>
+            <button class="enter-btn" id="enterBtn">
+                <span>ENTER THE RING</span>
+            </button>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 4v16m0 0l-6-6m6 6l6-6"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section" id="story">
+        <div class="story-container">
+            <h2 class="section-title">THE JOURNEY</h2>
+            
+            <div class="story-content">
+                <div class="story-text">
+                    <p>The gym in Fuji smelled of sweat, leather, and quiet determination. Every morning before dawn, <span class="highlight">Jed Encinares</span> laced up his gloves — not just to train, but to prove that a young Filipino boy could make his name echo in a foreign land.</p>
+                    <p>Born and raised in the Philippines, Jed carried with him the rhythm of <span class="highlight">Batangas waves</span>, the echo of his father's old radio calling boxing matches, and the dream that one day his name would be the one the commentators shouted with pride.</p>
+                    <p>He wasn't supposed to be here — not yet. But destiny doesn't wait for permission.</p>
+                </div>
+                <div class="story-image">
+                    <img src="images/522224a6-18d1-423b-a2c8-7c1b54ef03c2.jpeg" alt="Jed Training">
+                </div>
+            </div>
+
+            <div class="story-quote">
+                <p>"When his family moved to Japan, Jed found himself between two worlds — a land of order, silence, and precision, and the fire that burned in his Filipino blood."</p>
+            </div>
+
+            <div class="story-content">
+                <div class="story-image">
+                    <img src="images/61b322bd-44db-4b88-8d8e-981fda6a873f.jpeg" alt="Jed Fighting">
+                </div>
+                <div class="story-text">
+                    <p>At <span class="highlight">17 years old</span>, he entered the professional ring for the first time. The lights were bright. The crowd was distant. And his heart, louder than the bell, said: <span class="highlight">"Do it for home."</span></p>
+                    <p>His debut ended in defeat — a knockout. The sting of that loss stayed with him for weeks. He replayed it in his mind every night, the sound of the referee's count, the way the crowd faded.</p>
+                    <p>But instead of quitting, he came back <span class="highlight">stronger</span>. Morning jogs through the misty streets of Fuji turned into lessons in endurance. Every punch on the heavy bag was a silent promise: "I'm not done."</p>
+                </div>
+            </div>
+
+            <div class="story-quote">
+                <p>"Months later, he climbed back into the ring — this time in Tokyo. The fight ended in a draw. Not a victory, but not a defeat either. For Jed, it was something deeper: a beginning."</p>
+                <cite>— THE REBIRTH</cite>
+            </div>
+
+            <div class="story-content">
+                <div class="story-text">
+                    <p>After the fight, a Japanese trainer clapped him on the shoulder and said, <span class="highlight">"You have heart. Keep it."</span></p>
+                    <p>Jed smiled, sweat dripping down his face, the Philippine flag stitched on his shorts. "I will," he said softly. "I'll keep fighting — for them."</p>
+                    <p>And somewhere between the ropes and the rising sun of Fuji, a young fighter found his balance — between the <span class="highlight">discipline of Japan</span> and the <span class="highlight">spirit of the Philippines</span>.</p>
+                    <p style="font-size: 1.4rem; color: var(--primary); font-weight: 700; margin-top: 40px; text-align: center;">The story of Jed Encinares had just begun.</p>
+                </div>
+                <div class="story-image">
+                    <img src="images/a3258f1f-fbb8-46e2-9602-f96f9d4ea949.jpeg" alt="Jed Champion">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stat-card">
+            <div class="stat-icon">🥊</div>
+            <div class="stat-number">17</div>
+            <div class="stat-label">Years Old</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">📏</div>
+            <div class="stat-number">5'5"</div>
+            <div class="stat-label">Height</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">⚡</div>
+            <div class="stat-number">2</div>
+            <div class="stat-label">Pro Fights</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">❤️</div>
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Heart</div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <h2 class="section-title">IN THE RING</h2>
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <img src="images/6ede40c0-460d-462c-8685-6a70043011d6.jpeg" alt="Fight Moment">
+                <div class="gallery-overlay">
+                    <h3>Power & Precision</h3>
+                    <p>Every punch tells a story of dedication</p>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <img src="images/9d1b4112-07ad-46ff-b862-6c150bfcd513.jpeg" alt="Fight Moment">
+                <div class="gallery-overlay">
+                    <h3>Warrior Spirit</h3>
+                    <p>Facing champions with unwavering courage</p>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <img src="images/ae7a790f-ee79-4b03-b6f3-511311cbc225.jpeg" alt="Fight Moment">
+                <div class="gallery-overlay">
+                    <h3>Rising Champion</h3>
+                    <p>The journey to greatness continues</p>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <img src="images/a3258f1f-fbb8-46e2-9602-f96f9d4ea949.jpeg" alt="Fight Moment">
+                <div class="gallery-overlay">
+                    <h3>Technical Mastery</h3>
+                    <p>Precision meets passion in every move</p>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <img src="images/61b322bd-44db-4b88-8d8e-981fda6a873f.jpeg" alt="Fight Moment">
+                <div class="gallery-overlay">
+                    <h3>Moment of Truth</h3>
+                    <p>Standing tall under the spotlight</p>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <img src="images/522224a6-18d1-423b-a2c8-7c1b54ef03c2.jpeg" alt="Fight Moment">
+                <div class="gallery-overlay">
+                    <h3>The Fighter's Soul</h3>
+                    <p>Between two worlds, one dream</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com/jed.encinares" target="_blank" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.988h-2.54V12h2.54V9.797c0-2.502 1.492-3.882 3.777-3.882 1.094 0 2.24.195 2.24.195v2.46h-1.264c-1.242 0-1.631.774-1.631 1.57v1.88h2.77L15.5 15.15h-2.42v6.989C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/nothackedjed/" target="_blank" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="currentColor"><path d="M12 2c-2.715 0-3.056.012-4.123.06c-1.07.048-1.782.247-2.422.506a4.782 4.782 0 00-1.772 1.153A4.779 4.779 0 002.56 5.897c-.26.64-.46 1.353-.506 2.423-.047 1.066-.06 1.407-.06 4.122s.013 3.056.06 4.123c.048 1.07.247 1.782.506 2.422a4.782 4.782 0 001.153 1.772A4.779 4.779 0 005.897 21.44c.64.26 1.353.46 2.423.506 1.066.047 1.407.06 4.122.06s3.056-.013 4.123-.06c1.07-.048 1.782-.247 2.422-.506a4.782 4.782 0 001.772-1.153 4.779 4.779 0 001.153-1.772c.26-.64.46-1.353.506-2.423.047-1.066.06-1.407.06-4.122s-.013-3.056-.06-4.123c-.048-1.07-.247-1.782-.506-2.422a4.782 4.782 0 00-1.153-1.772 4.779 4.779 0 00-1.772-1.153c-.64-.26-1.353-.46-2.423-.506C15.056 2.013 14.715 2 12 2zm0 18.021c-4.444 0-4.996-.018-6.732-.099-.953-.043-1.498-.242-1.766-.349a2.72 2.72 0 01-.98-.655 2.72 2.72 0 01-.655-.98c-.107-.268-.306-.813-.349-1.766-.081-1.736-.099-2.288-.099-6.732s.018-4.996.099-6.732c.043-.953.242-1.498.349-1.766a2.72 2.72 0 01.655-.98 2.72 2.72 0 01.98-.655c.268-.107.813-.306 1.766-.349C7.004 3.979 7.556 3.96 12 3.96s4.996.018 6.732.099c.953.043 1.498.242 1.766.349.34.137.643.334.93.62.287.287.483.59.62.93.107.268.306.813.349 1.766.081 1.736.099 2.288.099 6.732s-.018 4.996-.099 6.732c-.043.953-.242 1.498-.349 1.766a2.72 2.72 0 01-.655.98 2.72 2.72 0 01-.98.655c-.268.107-.813.306-1.766.349-1.736.081-2.288.099-6.732.099zm0-13.011A5.04 5.04 0 1017.04 12 5.04 5.04 0 0012 6.989zm0 8.081a3.04 3.04 0 110-6.08 3.04 3.04 0 010 6.08zm6.54-10.741a1.18 1.18 0 100-2.36 1.18 1.18 0 000 2.36z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@jedjedan" target="_blank" aria-label="YouTube">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="currentColor"><path d="M21.543 6.495c-.23-.815-.795-1.479-1.61-1.708C18.667 4 12 4 12 4s-6.667 0-7.933.787c-.815.229-1.38 1.093-1.61 1.708-.27 1.18-.5 3.19-.5 5.505s.23 4.325.5 5.505c.23.815.795 1.479 1.61 1.708C5.333 20 12 20 12 20s6.667 0 7.933-.787c.815-.229 1.38-1.093 1.61-1.708.27-1.18.5-3.19.5-5.505s-.23-4.325-.5-5.505zM9.916 14.862V9.138L15.22 12l-5.304 2.862z"/></svg>
+            </a>
+        </div>
+        <p>&copy; 2025 <a href="https://www.facebook.com/jed.encinares" class="footer-highlight" target="_blank">Jed Encinares</a> Official. All rights reserved.</p>
+        <p style="margin-top: 15px; color: #666;">The Ring Between Two Worlds</p>
+        <p style="margin-top: 10px; color: #444; font-size: 0.85rem;"><a href="https://en.wikipedia.org/wiki/Philippines" target="_blank">Philippines 🇵🇭</a> × <a href="https://en.wikipedia.org/wiki/Japan" target="_blank">Japan 🇯🇵</a></p>
+    </footer>
+     <script>
+        // Create particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // Music control
+        const bgMusic = document.getElementById('bgMusic');
+        const audioToggle = document.getElementById('audioToggle');
+        const soundOn = document.getElementById('soundOn');
+        const soundOff = document.getElementById('soundOff');
+        let musicPlaying = false;
+
+        audioToggle.addEventListener('click', () => {
+            if (musicPlaying) {
+                bgMusic.pause();
+                soundOn.style.display = 'none';
+                soundOff.style.display = 'block';
+                musicPlaying = false;
+            } else {
+                bgMusic.play();
+                soundOn.style.display = 'block';
+                soundOff.style.display = 'none';
+                musicPlaying = true;
+            }
+        });
+
+        // Enter button - start music and scroll
+        const enterBtn = document.getElementById('enterBtn');
+        enterBtn.addEventListener('click', () => {
+            bgMusic.volume = 0.6;
+            bgMusic.play().then(() => {
+                musicPlaying = true;
+                soundOn.style.display = 'block';
+                soundOff.style.display = 'none';
+            }).catch(err => {
+                console.log('Music autoplay blocked:', err);
+            });
+
+            document.getElementById('story').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Hero slideshow
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, 3000);
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animatable elements
+        document.querySelectorAll('.story-content, .story-quote, .stat-card, .gallery-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add staggered animation delays to stat cards
+        document.querySelectorAll('.stat-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Add staggered animation delays to gallery cards
+        document.querySelectorAll('.gallery-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Smooth scroll for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.hero-slide img');
+            parallaxElements.forEach(el => {
+                el.style.transform = `scale(1.1) translateY(${scrolled * 0.3}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
